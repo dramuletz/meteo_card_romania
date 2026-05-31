@@ -109,7 +109,7 @@ class MeteoCardRomania extends HTMLElement {
   async _fetchForecast() {
     if (!this._hass || !this._config) return;
     this._forecastFetched = true;
-    const weatherEntity = `weather.${this._config.city}_meteo`;
+    const weatherEntity = `weather.${this._config.city}`;
     try {
       const result = await this._hass.callWS({
         type: 'weather/get_forecasts',
@@ -190,7 +190,7 @@ class MeteoCardRomania extends HTMLElement {
     const city        = this._config.city;
     const cityDisplay = this._config.city_name || city.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
-    const weatherEntity = `weather.${city}_meteo`;
+    const weatherEntity = `weather.${city}`;
     const tempEntity    = `sensor.${city}_temperature`;
     const humEntity     = `sensor.${city}_humidity`;
     const windEntity    = `sensor.${city}_wind_speed`;
